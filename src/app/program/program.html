@@ -1,0 +1,10 @@
+<div class="mb-3">
+  <label for="dslInput" class="form-label">Define a new irrigation program</label>
+  <textarea class="form-control" id="dslInput" rows="6" placeholder="Write your DSL code here..."></textarea>
+  <div class="row mt-4">
+    <div class="col-12 col-lg-12 hstack gap-2">
+        <button class="btn btn-primary ms-auto" (click)="validateDSL()">Validate</button>
+        <button class="btn btn-primary ms-auto" (click)="generateAndSendDSL()">Upload</button>
+    </div>
+  </div>
+</div>
