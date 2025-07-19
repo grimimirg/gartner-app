@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
+import { ProgramParserService } from './program-parser.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ProgramService {
-    private baseUrl = environment.apiBaseUrl;
 
-    constructor(private http: HttpClient) { }
+  constructor(
+    private programParserService: ProgramParserService,
+    private httpClient: HttpClient) { }
 
-    sendDSL(instructions: any): void {
-        this.http.post(this.baseUrl + "/sendDSL", { instructions });
-    }
+  sendDSL(dsl: string): Observable<any> {
+    return this.httpClient.post<any>(environment.apiBaseUrl + "/sendDSL", this.programParserService.parse(dsl));
+  }
 }

@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import parser from '../pegjs-generator/parser';
+import { FormsModule } from '@angular/forms';
 import { ProgramService } from './program.service';
 
 @Component({
   selector: 'app-program',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './program.html',
   styleUrl: './program.scss'
 })
 export class Program {
+  dsl!: string;
 
   constructor(private programService: ProgramService) { }
 
@@ -16,15 +17,14 @@ export class Program {
    * validateDSL
    */
   public validateDSL() {
-    
+
   }
 
   /**
    * generateAndSendDSL
    */
   public generateAndSendDSL() {
-    const instructions = parser.parse();
-    this.programService.sendDSL(instructions);
+    this.programService.sendDSL(this.dsl);
   }
 
 }
