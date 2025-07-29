@@ -8,6 +8,8 @@ export class RuleParseModel {
             value: number
         }[];
     action!: {
+        terminate: any,
+        every: any,
         command: string,
         zone: string,
         duration: {
