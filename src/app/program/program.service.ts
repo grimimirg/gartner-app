@@ -14,6 +14,6 @@ export class ProgramService {
     private httpClient: HttpClient) { }
 
   sendDSL(dsl: string): Observable<any> {
-    return this.httpClient.post<any>(environment.apiBaseUrl + "/sendDSL", this.programParserService.parse(dsl));
+    return this.httpClient.post<any>(environment.masterNodeBaseUrl + "/saveProgram", this.programParserService.parse(dsl));
   }
 }
