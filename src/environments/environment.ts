@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://localhost:3000/api',
+  masterNodeBaseUrl: 'http://192.168.1.4',
   grammar:
     `
     start
